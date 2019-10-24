@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
-using SaintSender;
 using System.IO;
-using System.IO.Compression;
+using System.Xml.Serialization;
 
 namespace SaintSender
 {
@@ -19,8 +18,10 @@ namespace SaintSender
         public MainForm()
         {
             InitializeComponent();
+            User user = User.Load("User.xml");
             SmtpClient gmailsetupsmtp = new SmtpClient("smtp.gmail.com");
             gmailsetupsmtp.Port = 993;
+
             
 
 
@@ -37,6 +38,7 @@ namespace SaintSender
         {
             MailSenderForm mailSenderForm = new MailSenderForm();
             mailSenderForm.Show();
+            this.Hide();
         }
     }
 }

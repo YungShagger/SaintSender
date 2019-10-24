@@ -6,32 +6,41 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
-namespace SaintSender
+ namespace SaintSender
 {
-    public class User : ISerializable
+    [Serializable]
+    public class User 
     {
-        private string username = string.Empty;
-        private string password = string.Empty;
-
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
+        public string username;
+        public string password;
 
         public User(string username, string password)
         {
-            this.Username = username;
-            this.Password = password;
+            this.username = username;
+            this.password = password;
+        }
+        public User() {}
+
+        public void Save(string filename)
+        {
+            using (var stream = new FileStream(filename, FileMode.Create))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(User));
+                serializer.Serialize(stream, this);
+            }
+
+        }
+        public static User Load(string filename)
+        {
+            using (var stream = new FileStream(filename, FileMode.Open))
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(User));
+                return (User)deserializer.Deserialize(stream);
+            }
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("username", username);
-            info.AddValue("password", password);
-        }
-        public User(SerializationInfo info, StreamingContext context)
-        {
-            username = (string)info.GetValue("username", typeof(string));
-            password = (string)info.GetValue("password", typeof(string));
-        }
+        
     }
 }

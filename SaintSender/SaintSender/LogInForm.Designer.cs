@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.usernametxt = new System.Windows.Forms.TextBox();
             this.passwordtxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SignInButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,17 @@
             this.panel1.Size = new System.Drawing.Size(388, 36);
             this.panel1.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(12, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 30);
+            this.label3.TabIndex = 6;
+            this.label3.Text = " Login Here";
+            // 
             // usernametxt
             // 
             this.usernametxt.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -57,6 +68,7 @@
             this.usernametxt.Size = new System.Drawing.Size(218, 35);
             this.usernametxt.TabIndex = 1;
             this.usernametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.usernametxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LogInForm_KeyDown);
             // 
             // passwordtxt
             // 
@@ -68,6 +80,7 @@
             this.passwordtxt.TabIndex = 2;
             this.passwordtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.passwordtxt.UseSystemPasswordChar = true;
+            this.passwordtxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LogInForm_KeyDown);
             // 
             // label1
             // 
@@ -92,44 +105,33 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
-            // button1
+            // SignInButton
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(84, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Sign In >>";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SignInButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.SignInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignInButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SignInButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SignInButton.Location = new System.Drawing.Point(84, 237);
+            this.SignInButton.Name = "SignInButton";
+            this.SignInButton.Size = new System.Drawing.Size(218, 32);
+            this.SignInButton.TabIndex = 5;
+            this.SignInButton.Text = "Sign In >>";
+            this.SignInButton.UseVisualStyleBackColor = false;
+            this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
-            // label3
+            // ExitButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 30);
-            this.label3.TabIndex = 6;
-            this.label3.Text = " Login Here";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.MediumBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(84, 275);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 32);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Exit <<";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ExitButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ExitButton.ForeColor = System.Drawing.Color.Transparent;
+            this.ExitButton.Location = new System.Drawing.Point(84, 275);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(218, 32);
+            this.ExitButton.TabIndex = 6;
+            this.ExitButton.Text = "Exit <<";
+            this.ExitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButto_Click);
             // 
             // LogInForm
             // 
@@ -137,8 +139,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(388, 378);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordtxt);
@@ -149,6 +151,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Window";
             this.Load += new System.EventHandler(this.LogInForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LogInForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -163,9 +166,9 @@
         private System.Windows.Forms.TextBox passwordtxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SignInButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
 

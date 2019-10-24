@@ -9,3 +9,14 @@ C:\Users\Work\source\repos\SaintSender\SaintSender\obj\Debug\SaintSender.exe
 C:\Users\Work\source\repos\SaintSender\SaintSender\obj\Debug\SaintSender.pdb
 C:\Users\Work\source\repos\SaintSender\SaintSender\obj\Debug\SaintSender.MainForm.resources
 C:\Users\Work\source\repos\SaintSender\SaintSender\obj\Debug\SaintSender.MailSenderForm.resources
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\SaintSender.exe.config
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\SaintSender.exe
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\SaintSender.pdb
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.csprojAssemblyReference.cache
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.LogInForm.resources
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.MailSenderForm.resources
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.MainForm.resources
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.Properties.Resources.resources
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.csproj.GenerateResource.cache
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.exe
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.pdb

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.BackButton = new System.Windows.Forms.Button();
             this.recipenttxt = new System.Windows.Forms.TextBox();
             this.subjecttxt = new System.Windows.Forms.TextBox();
             this.bodytxt = new System.Windows.Forms.RichTextBox();
@@ -54,6 +54,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(773, 36);
             this.panel1.TabIndex = 2;
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.White;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BackButton.ForeColor = System.Drawing.Color.Black;
+            this.BackButton.Location = new System.Drawing.Point(688, 3);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(69, 28);
+            this.BackButton.TabIndex = 7;
+            this.BackButton.Text = "Back <<";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // button1
             // 
@@ -79,20 +93,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "New Email";
             // 
-            // BackButton
-            // 
-            this.BackButton.BackColor = System.Drawing.Color.White;
-            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BackButton.ForeColor = System.Drawing.Color.Black;
-            this.BackButton.Location = new System.Drawing.Point(688, 3);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(69, 28);
-            this.BackButton.TabIndex = 7;
-            this.BackButton.Text = "Back <<";
-            this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
             // recipenttxt
             // 
             this.recipenttxt.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -100,7 +100,6 @@
             this.recipenttxt.Name = "recipenttxt";
             this.recipenttxt.Size = new System.Drawing.Size(740, 35);
             this.recipenttxt.TabIndex = 3;
-            this.recipenttxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // subjecttxt
             // 
@@ -109,7 +108,6 @@
             this.subjecttxt.Name = "subjecttxt";
             this.subjecttxt.Size = new System.Drawing.Size(740, 35);
             this.subjecttxt.TabIndex = 4;
-            this.subjecttxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // bodytxt
             // 
@@ -133,6 +131,7 @@
             this.FileAttacherButton.TabIndex = 8;
             this.FileAttacherButton.Text = "Browse";
             this.FileAttacherButton.UseVisualStyleBackColor = false;
+            this.FileAttacherButton.Click += new System.EventHandler(this.FileAttacherButton_Click);
             // 
             // FileAttacherLabel
             // 
@@ -156,6 +155,7 @@
             this.SendButton.TabIndex = 11;
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = false;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
             // RecipentLabel
             // 
@@ -194,6 +194,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MailSenderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MailSenderForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

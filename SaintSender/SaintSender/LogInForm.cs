@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.IO;
 using System.Xml.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace SaintSender
 {
@@ -27,20 +27,12 @@ namespace SaintSender
         {
 
         }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void SignInButton_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!IsEmailCorrect(usernametxt.Text))
                 {
-                    ///throw new System.ArgumentException("The e-mail address is not valid.");
                     MessageBox.Show("The you gave is not a valid email adress!");
                 }
                 else if (passwordtxt.Text == "")
@@ -59,13 +51,13 @@ namespace SaintSender
                     gmailsetupsmtp.Credentials = new System.Net.NetworkCredential(usernametxt.Text, passwordtxt.Text);
                     gmailsetupsmtp.EnableSsl = true;
                     gmailsetupsmtp.Send(mymessage);
-
                     User user = new User(usernametxt.Text, passwordtxt.Text);
-                    XmlSerializer serializer = new XmlSerializer(typeof(User));
-                    using (TextWriter tw = new StreamWriter(@"C:\Users\Work\C#\XML\User.xml"))
-                    {
+                    user.username = usernametxt.Text;
+                    user.password = passwordtxt.Text;
+                    user.Save("User.xml");
 
-                    }
+
+                    user = null;
 
 
                     MainForm mainform = new MainForm();
@@ -78,7 +70,6 @@ namespace SaintSender
                 MessageBox.Show(exc.ToString());
             }
         }
-
         private bool IsEmailCorrect(string email)
         {
             if (string.IsNullOrEmpty(email))
@@ -87,9 +78,23 @@ namespace SaintSender
             }
             else
             {
-                var regex = new Regex(@"\w +([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+                var regex = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
                 return regex.IsMatch(email) && !email.EndsWith(".");
             }
         }
+
+        private void LogInForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SignInButton.PerformClick();
+            }
+        }
+
+        private void ExitButto_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
