@@ -25,6 +25,8 @@ namespace SaintSender
         {
 
             this.Hide();
+            MainForm mainform = new MainForm();
+            mainform.Show();
         }
 
         private void FileAttacherButton_Click(object sender, EventArgs e)
@@ -47,6 +49,11 @@ namespace SaintSender
                 gmailsetupsmtp.Credentials = new System.Net.NetworkCredential(user.username, user.password);
                 gmailsetupsmtp.EnableSsl = true;
                 gmailsetupsmtp.Send(mymessage);
+                this.Hide();
+                MainForm mainform = new MainForm();
+                mainform.Show();
+                MessageBox.Show("Email Sent!");
+
             }
             catch (Exception exc)
             {

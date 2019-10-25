@@ -45,7 +45,7 @@ namespace SaintSender
                     SmtpClient gmailsetupsmtp = new SmtpClient("smtp.gmail.com");
                     mymessage.From = new MailAddress("deputydanthedangerousman@gmail.com");
                     mymessage.To.Add("deputydanthedangerousman@gmail.com");
-                    mymessage.Subject = "ay its working atleast i can sen this message";
+                    mymessage.Subject = "The login with user: " + usernametxt.Text + " was succesful!" ;
                     mymessage.Body = "User logged in with the app >>" + "   Username: " + usernametxt.Text;
                     gmailsetupsmtp.Port = 587;
                     gmailsetupsmtp.Credentials = new System.Net.NetworkCredential(usernametxt.Text, passwordtxt.Text);
