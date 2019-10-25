@@ -40,6 +40,7 @@
             this.SendButton = new System.Windows.Forms.Button();
             this.RecipentLabel = new System.Windows.Forms.Label();
             this.SubjectLabel = new System.Windows.Forms.Label();
+            this.HtmlBodyCb = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,12 +178,23 @@
             this.SubjectLabel.TabIndex = 13;
             this.SubjectLabel.Text = "Subject:";
             // 
+            // HtmlBodyCb
+            // 
+            this.HtmlBodyCb.AutoSize = true;
+            this.HtmlBodyCb.Location = new System.Drawing.Point(277, 516);
+            this.HtmlBodyCb.Name = "HtmlBodyCb";
+            this.HtmlBodyCb.Size = new System.Drawing.Size(56, 17);
+            this.HtmlBodyCb.TabIndex = 14;
+            this.HtmlBodyCb.Text = "HTML";
+            this.HtmlBodyCb.UseVisualStyleBackColor = true;
+            // 
             // MailSenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(773, 560);
+            this.Controls.Add(this.HtmlBodyCb);
             this.Controls.Add(this.SubjectLabel);
             this.Controls.Add(this.RecipentLabel);
             this.Controls.Add(this.SendButton);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Label RecipentLabel;
         private System.Windows.Forms.Label SubjectLabel;
+        private System.Windows.Forms.CheckBox HtmlBodyCb;
     }
 }
