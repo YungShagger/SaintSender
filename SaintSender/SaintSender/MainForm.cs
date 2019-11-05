@@ -28,6 +28,7 @@ namespace SaintSender
 
             MailListView.Columns.Add("Sender", 130);
             MailListView.Columns.Add("Date", 130);
+            MailListView.Columns.Add("Subject", 100);
             MailListView.Columns.Add("Email", 800);
 
             User user = User.Load("User.xml");
@@ -42,11 +43,13 @@ namespace SaintSender
                     var eml = imap.GetMessageByUID(uid);
                     IMail mail = new MailBuilder().CreateFromEml(eml);
 
-                    string[] newMail = new string[4];
+                    string[] newMail = new string[5];
                     ListViewItem itm;
-                    newMail[0] = mail.Subject.ToString();
+                    newMail[0] = mail.Sender.Name.ToString();
                     newMail[1] = mail.Date.ToString();
-                    newMail[2] = mail.Text.ToString();
+                    newMail[2] = mail.Subject.ToString();
+                    newMail[3] = mail.Text.ToString();
+                    newMail[4] = mail.Sender.Address.ToString();
                     itm = new ListViewItem(newMail);
                     MailListView.Items.Add(itm);
                     
@@ -67,31 +70,26 @@ namespace SaintSender
             this.Hide();
         }
 
-        private void stuff()
-        {
-            User user = User.Load("User.xml");
-            string[] newMail = new string[4];
-            ListViewItem itm;
-            //newMail[0] = msg.Subject;
-            //newMail[1] = msg.Date.ToString();
-            //newMail[2] = msg.Body;
-            itm = new ListViewItem(newMail);
-            MailListView.Items.Add(itm);
-
-
-        }
-
         private void MailListView_Click(object sender, EventArgs e)
         {
-            string Sender = null;
-            string Date = null;
-            string Email = null;
+            string senderName = null;
+            string senderAdress = null;
+            string dt = null;
+            string sjbct = null;
+            string ml = null;
 
-            Sender = MailListView.SelectedItems[0].SubItems[0].Text;
-            Date = MailListView.SelectedItems[0].SubItems[1].Text;
-            Email = MailListView.SelectedItems[0].SubItems[2].Text;
+            senderName = MailListView.SelectedItems[0].SubItems[0].Text;
+            senderAdress = MailListView.SelectedItems[0].SubItems[4].Text;
+            dt = MailListView.SelectedItems[0].SubItems[1].Text;
+            sjbct = MailListView.SelectedItems[0].SubItems[2].Text;
+            ml = MailListView.SelectedItems[0].SubItems[3].Text;
 
-            MessageBox.Show(Sender + " , " + Date + " , " + Email);
+            Email email = new Email(senderName, senderAdress, dt, sjbct, ml);
+            email.Save("Email.xml");
+
+            EmailForm emailform = new EmailForm();
+            emailform.Show();
+            this.Hide();
         }
     }
 }

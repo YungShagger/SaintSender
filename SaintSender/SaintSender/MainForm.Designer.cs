@@ -53,11 +53,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(1165, 5);
+            this.button1.Location = new System.Drawing.Point(1147, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 28);
+            this.button1.Size = new System.Drawing.Size(69, 28);
             this.button1.TabIndex = 2;
-            this.button1.Text = "EXIT";
+            this.button1.Text = "Exit <<";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -96,7 +96,7 @@
             this.MailListView.TabIndex = 5;
             this.MailListView.UseCompatibleStateImageBehavior = false;
             this.MailListView.View = System.Windows.Forms.View.Details;
-            this.MailListView.Click += new System.EventHandler(this.MailListView_Click);
+            this.MailListView.DoubleClick += new System.EventHandler(this.MailListView_Click);
             // 
             // MainForm
             // 

@@ -43,14 +43,9 @@ namespace SaintSender
                 {
                     MailMessage mymessage = new MailMessage();
                     SmtpClient gmailsetupsmtp = new SmtpClient("smtp.gmail.com");
-                    mymessage.From = new MailAddress("deputydanthedangerousman@gmail.com");
-                    mymessage.To.Add("deputydanthedangerousman@gmail.com");
-                    mymessage.Subject = "The login with user: " + usernametxt.Text + " was succesful!" ;
-                    mymessage.Body = "User logged in with the app >>" + "   Username: " + usernametxt.Text;
                     gmailsetupsmtp.Port = 587;
                     gmailsetupsmtp.Credentials = new System.Net.NetworkCredential(usernametxt.Text, passwordtxt.Text);
                     gmailsetupsmtp.EnableSsl = true;
-                    gmailsetupsmtp.Send(mymessage);
                     User user = new User(usernametxt.Text, passwordtxt.Text);
                     user.username = usernametxt.Text;
                     user.password = passwordtxt.Text;
@@ -61,8 +56,8 @@ namespace SaintSender
 
 
                     MainForm mainform = new MainForm();
-                    mainform.Show();
                     this.Hide();
+                    mainform.Show();
                 }
             }
             catch (Exception exc)

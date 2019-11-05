@@ -27,7 +27,6 @@ namespace SaintSender
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             MainForm mainform = new MainForm();
             mainform.Show();

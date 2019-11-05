@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Email xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <senderName>Dániel Magyar</senderName>
+  <senderAdress>pridak7@gmail.com</senderAdress>
+  <date>2019. 11. 05. 14:47:33</date>
+  <subject>Just a simple subject</subject>
+  <email>nothing to see here it's a new email
+</email>
+</Email>

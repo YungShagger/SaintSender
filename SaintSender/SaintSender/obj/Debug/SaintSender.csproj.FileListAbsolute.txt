@@ -27,3 +27,4 @@ C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\AE.Net.Mail.dll
 C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\AE.Net.Mail.pdb
 C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\Mail.dll
 C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\Mail.xml
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.EmailForm.resources
