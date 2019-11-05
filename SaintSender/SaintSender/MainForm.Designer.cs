@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.NewMailButton = new System.Windows.Forms.Button();
+            this.MailListView = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,17 +46,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1219, 36);
             this.panel1.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 30);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Saint Sender";
             // 
             // button1
             // 
@@ -71,6 +61,17 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(12, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 30);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Saint Sender";
+            // 
             // NewMailButton
             // 
             this.NewMailButton.BackColor = System.Drawing.Color.RoyalBlue;
@@ -85,12 +86,25 @@
             this.NewMailButton.UseVisualStyleBackColor = false;
             this.NewMailButton.Click += new System.EventHandler(this.NewMailButton_Click);
             // 
+            // MailListView
+            // 
+            this.MailListView.FullRowSelect = true;
+            this.MailListView.HideSelection = false;
+            this.MailListView.Location = new System.Drawing.Point(161, 114);
+            this.MailListView.Name = "MailListView";
+            this.MailListView.Size = new System.Drawing.Size(1046, 552);
+            this.MailListView.TabIndex = 5;
+            this.MailListView.UseCompatibleStateImageBehavior = false;
+            this.MailListView.View = System.Windows.Forms.View.Details;
+            this.MailListView.Click += new System.EventHandler(this.MailListView_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1219, 709);
+            this.ClientSize = new System.Drawing.Size(1219, 678);
+            this.Controls.Add(this.MailListView);
             this.Controls.Add(this.NewMailButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -109,5 +123,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button NewMailButton;
+        private System.Windows.Forms.ListView MailListView;
     }
 }

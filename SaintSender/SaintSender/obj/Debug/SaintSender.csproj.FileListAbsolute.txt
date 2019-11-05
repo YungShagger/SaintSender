@@ -20,3 +20,10 @@ C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.Properties.Resour
 C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.csproj.GenerateResource.cache
 C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.exe
 C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.pdb
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\S22.Imap.dll
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\S22.Imap.xml
+C:\Users\Work\C#\SaintSender\SaintSender\obj\Debug\SaintSender.csproj.CopyComplete
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\AE.Net.Mail.dll
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\AE.Net.Mail.pdb
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\Mail.dll
+C:\Users\Work\C#\SaintSender\SaintSender\bin\Debug\Mail.xml
