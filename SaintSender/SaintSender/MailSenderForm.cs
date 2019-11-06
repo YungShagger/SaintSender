@@ -27,9 +27,9 @@ namespace SaintSender
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             MainForm mainform = new MainForm();
             mainform.Show();
+            this.Hide();
         }
 
         private void FileAttacherButton_Click(object sender, EventArgs e)
@@ -77,9 +77,9 @@ namespace SaintSender
 
                 gmailsetupsmtp.Send(mymessage);
                 filename = "";
-                this.Hide();
                 MainForm mainform = new MainForm();
                 mainform.Show();
+                this.Hide();
                 MessageBox.Show("Email Sent!");
 
             }

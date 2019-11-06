@@ -123,7 +123,7 @@ namespace SaintSender
         }
         private void SentButton_Click(object sender, EventArgs e)
         {
-            sorter = Flag.Submitted;
+            sorter = Flag.MDNSent;
             filllistview();
         }
         public void filllistview()
