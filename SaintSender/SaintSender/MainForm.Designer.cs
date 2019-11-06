@@ -33,6 +33,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.NewMailButton = new System.Windows.Forms.Button();
             this.MailListView = new System.Windows.Forms.ListView();
+            this.SortAllButton = new System.Windows.Forms.Button();
+            this.SortSeenButton = new System.Windows.Forms.Button();
+            this.SortUnseenButton = new System.Windows.Forms.Button();
+            this.SentButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,13 +78,13 @@
             // 
             // NewMailButton
             // 
-            this.NewMailButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.NewMailButton.BackColor = System.Drawing.Color.Green;
             this.NewMailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NewMailButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.NewMailButton.ForeColor = System.Drawing.Color.Transparent;
-            this.NewMailButton.Location = new System.Drawing.Point(10, 42);
+            this.NewMailButton.Location = new System.Drawing.Point(12, 71);
             this.NewMailButton.Name = "NewMailButton";
-            this.NewMailButton.Size = new System.Drawing.Size(122, 37);
+            this.NewMailButton.Size = new System.Drawing.Size(137, 37);
             this.NewMailButton.TabIndex = 3;
             this.NewMailButton.Text = "Nem Email";
             this.NewMailButton.UseVisualStyleBackColor = false;
@@ -98,12 +102,73 @@
             this.MailListView.View = System.Windows.Forms.View.Details;
             this.MailListView.DoubleClick += new System.EventHandler(this.MailListView_Click);
             // 
+            // SortAllButton
+            // 
+            this.SortAllButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SortAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SortAllButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SortAllButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SortAllButton.Location = new System.Drawing.Point(12, 114);
+            this.SortAllButton.Name = "SortAllButton";
+            this.SortAllButton.Size = new System.Drawing.Size(137, 37);
+            this.SortAllButton.TabIndex = 6;
+            this.SortAllButton.Text = "Sort All";
+            this.SortAllButton.UseVisualStyleBackColor = false;
+            this.SortAllButton.Click += new System.EventHandler(this.SortAllButton_Click);
+            // 
+            // SortSeenButton
+            // 
+            this.SortSeenButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SortSeenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SortSeenButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SortSeenButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SortSeenButton.Location = new System.Drawing.Point(12, 200);
+            this.SortSeenButton.Name = "SortSeenButton";
+            this.SortSeenButton.Size = new System.Drawing.Size(137, 37);
+            this.SortSeenButton.TabIndex = 8;
+            this.SortSeenButton.Text = "Sort Read";
+            this.SortSeenButton.UseVisualStyleBackColor = false;
+            this.SortSeenButton.Click += new System.EventHandler(this.SortSeenButton_Click);
+            // 
+            // SortUnseenButton
+            // 
+            this.SortUnseenButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SortUnseenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SortUnseenButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SortUnseenButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SortUnseenButton.Location = new System.Drawing.Point(12, 157);
+            this.SortUnseenButton.Name = "SortUnseenButton";
+            this.SortUnseenButton.Size = new System.Drawing.Size(137, 37);
+            this.SortUnseenButton.TabIndex = 7;
+            this.SortUnseenButton.Text = "Sort Unread";
+            this.SortUnseenButton.UseVisualStyleBackColor = false;
+            this.SortUnseenButton.Click += new System.EventHandler(this.SortUnseenButton_Click);
+            // 
+            // SentButton
+            // 
+            this.SentButton.AutoEllipsis = true;
+            this.SentButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SentButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SentButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SentButton.Location = new System.Drawing.Point(12, 243);
+            this.SentButton.Name = "SentButton";
+            this.SentButton.Size = new System.Drawing.Size(137, 37);
+            this.SentButton.TabIndex = 11;
+            this.SentButton.Text = "Sent Messages";
+            this.SentButton.UseVisualStyleBackColor = false;
+            this.SentButton.Click += new System.EventHandler(this.SentButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 678);
+            this.Controls.Add(this.SentButton);
+            this.Controls.Add(this.SortSeenButton);
+            this.Controls.Add(this.SortUnseenButton);
+            this.Controls.Add(this.SortAllButton);
             this.Controls.Add(this.MailListView);
             this.Controls.Add(this.NewMailButton);
             this.Controls.Add(this.panel1);
@@ -124,5 +189,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button NewMailButton;
         private System.Windows.Forms.ListView MailListView;
+        private System.Windows.Forms.Button SortAllButton;
+        private System.Windows.Forms.Button SortSeenButton;
+        private System.Windows.Forms.Button SortUnseenButton;
+        private System.Windows.Forms.Button SentButton;
     }
 }

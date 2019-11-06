@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
+using System.Collections.Generic;   
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.ComponentModel;
@@ -19,9 +19,11 @@ namespace SaintSender
 {
     public partial class MainForm : Form
     {
+        public Flag sorter; 
         public MainForm()
         {
             InitializeComponent();
+
             MailListView.View = View.Details;
             MailListView.GridLines = true;
             MailListView.FullRowSelect = true;
@@ -31,13 +33,15 @@ namespace SaintSender
             MailListView.Columns.Add("Subject", 100);
             MailListView.Columns.Add("Email", 800);
 
+            sorter = Flag.All;
+
             User user = User.Load("User.xml");
             using (Imap imap = new Imap())
             {
                 imap.ConnectSSL("imap.gmail.com");
                 imap.UseBestLogin(user.username, user.password);
                 imap.SelectInbox();
-                List<long> uids = imap.Search(Flag.All);
+                List<long> uids = imap.Search(sorter);
                 foreach (long uid in uids)
                 {
                     var eml = imap.GetMessageByUID(uid);
@@ -52,10 +56,21 @@ namespace SaintSender
                     newMail[4] = mail.Sender.Address.ToString();
                     itm = new ListViewItem(newMail);
                     MailListView.Items.Add(itm);
-                    
+
                 }
                 imap.Close();
             }
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); // 10 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+
+        }
+
+        
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            filllistview();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,6 +105,60 @@ namespace SaintSender
             EmailForm emailform = new EmailForm();
             emailform.Show();
             this.Hide();
+        }
+        private void SortAllButton_Click(object sender, EventArgs e)
+        {
+            sorter = Flag.All;
+            filllistview();
+        }
+        private void SortUnseenButton_Click(object sender, EventArgs e)
+        {
+            sorter = Flag.Unseen;
+            filllistview();
+        }
+        private void SortSeenButton_Click(object sender, EventArgs e)
+        {
+            sorter = Flag.Seen;
+            filllistview();
+        }
+        private void SentButton_Click(object sender, EventArgs e)
+        {
+            sorter = Flag.Submitted;
+            filllistview();
+        }
+        public void filllistview()
+        {
+            MailListView.View = View.Details;
+            MailListView.GridLines = true;
+            MailListView.FullRowSelect = true;
+            MailListView.Items.Clear();
+
+
+            User user = User.Load("User.xml");
+            using (Imap imap = new Imap())
+            {
+                imap.ConnectSSL("imap.gmail.com");
+                imap.UseBestLogin(user.username, user.password);
+                imap.SelectInbox();
+                List<long> uids = imap.Search(sorter);
+                foreach (long uid in uids)
+                {
+                    var eml = imap.GetMessageByUID(uid);
+                    IMail mail = new MailBuilder().CreateFromEml(eml);
+
+                    string[] newMail = new string[5];
+                    ListViewItem itm;
+                    newMail[0] = mail.Sender.Name.ToString();
+                    newMail[1] = mail.Date.ToString();
+                    newMail[2] = mail.Subject.ToString();
+                    newMail[3] = mail.Text.ToString();
+                    newMail[4] = mail.Sender.Address.ToString();
+                    itm = new ListViewItem(newMail);
+                    MailListView.Items.Add(itm);
+
+                }
+                imap.Close();
+            }
         }
     }
 }

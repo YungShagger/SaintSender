@@ -51,13 +51,12 @@ namespace SaintSender
                     user.password = passwordtxt.Text;
                     user.Save("User.xml");
 
-
                     user = null;
 
 
                     MainForm mainform = new MainForm();
-                    this.Hide();
                     mainform.Show();
+                    this.Hide();
                 }
             }
             catch (Exception exc)
